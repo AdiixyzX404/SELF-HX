@@ -54,7 +54,6 @@ const { jadibot, stopjadibot, listjadibot } = require('./lib/jadibot')
 
 
 banChats = true
-error = false
 offline = false
 targetpc = '60199782326'
 owner = '60199782326'
@@ -398,8 +397,6 @@ hexa.sendMessage(id, buttonMessage, MessageType.buttonsMessage, options)
     }
 }	
         if (!mek.key.fromMe && banChats === true) return
-        if (!mek.key.fromMe && error === true) return reply('Bot lagi maintenance')
-
 switch (command) {
 case 'isbaileys': 
 case 'bail': 
