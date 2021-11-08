@@ -460,11 +460,9 @@ Creator Base : Hexagon
 Recode : Adii
 Battery : Unlimited 🙃
 Mode : ${banChats ? 'SELF-MODE' : 'PUBLIC-MODE'}
-Maintenance : ${error}
+Maintenance : yntkts
 Prefix : ${prefix}
 Command : menu
-Auto Typing/Composing : ${autongetik}
-Auto Rec : ${autovn}
 
 [INFO USER]
 User : ${pushname}
@@ -554,13 +552,13 @@ _${prefix}delvote_
 _vote_
 _devote_
 `
-        	hexa.sendMessage(from, menu, text, {quoted: ftroli, contextInfo : { forwardingScore: 520, isForwarded: true, mentionedJid: [`${owner}@s.whatsapp.net`],
+        	hexa.sendMessage(from, menu, text, {quoted: ftroli, contextInfo : { forwardingScore: 520, isForwarded: true, 
     externalAdReply: {
                     title: `AHH YAMETE:V`,
                     body: `YO WASSUP`,
                     mediaType: 2,
                     mediaUrl: 'https://youtube.com/watch?v=dQw4w9WgXcQ',
-                    thumbnailUrl: fs.readFileSync('./stik/thumb.jpeg')
+                    thumbnailUrl: 'https://telegra.ph/file/2758c1f4c852cd7d1f206.jpg',
                 }}})
            	break
     case 'delvote':
