@@ -54,10 +54,16 @@ const { jadibot, stopjadibot, listjadibot } = require('./lib/jadibot')
 
 
 banChats = true
+error = false
 offline = false
-targetpc = '6285751056816'
-owner = '6285751056816'
-fake = 'HEXAGONZ'
+targetpc = '60199782326'
+owner = '60199782326'
+fake = 'ADYYBOTZ'
+multi = true
+nopref = false
+prefa = 'z'
+autovn = false
+autongetik = false
 numbernye = '0'
 waktu = '-'
 alasan = '-'
@@ -76,7 +82,25 @@ module.exports = hexa = async (hexa, mek) => {
 		const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
                 const type = Object.keys(mek.message)[0]        
                 const cmd = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''.slice(1).trim().split(/ +/).shift().toLowerCase()
-                const prefix = /^[°•π÷×¶∆£¢€¥®™=|~!#$%^&.?/\\©^z+*@,;]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™=|~!#$%^&.?/\\©^z+*,;]/gi) : '-'          	
+                
+//PREFIX MULTI AND NO PREFIX!
+        if (multi){
+        var prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~zZ+×_*!#$%^&./\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓=|~zZ+×_*!#$,|`÷?;:%abcdefghijklmnopqrstuvwxyz%^&./\\©^]/gi) : 'z'
+        } else {
+        if (nopref){
+        prefix = ''
+        } else {
+        prefix = prefa
+}}
+
+//BUATAN GUE. JANGAN EDIT NTR EMROR NANGES
+        if (autovn){
+        conn.updatePresence(from, Presence.recording)
+        } else {
+        if (autongetik){
+        conn.updatePresence(from, Presence.composing)
+}}
+          	
         body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : ''
 		budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 		const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()		
@@ -122,11 +146,16 @@ module.exports = hexa = async (hexa, mek) => {
         }
 
         const reply = (teks) => {
-            hexa.sendMessage(from, teks, text, {quoted:mek})
+            hexa.sendMessage(from, teks, text, {quoted:mek, contextInfo: { forwardingScore: 520, isForwarded: true, externalAdReply:{title: "AdyyBot",body:``,previewType:"PHOTO",thumbnail:fs.readFileSync('./stik/thumb.jpeg'),sourceUrl:""}}})
         }
 
         const sendMess = (hehe, teks) => {
-            hexa.sendMessage(hehe, teks, text)
+            hexa.sendMessage(hehe, teks, text, {quoted:ftroli})
+        }
+
+        const sendKontak = (from, nomor, nama, org = "") => {
+	       const vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + nama + '\n' + 'ORG:' + org + '\n' + 'TEL;type=CELL;type=VOICE;waid=' + nomor + ':+' + nomor + '\n' + 'END:VCARD'
+	       conn.sendMessage(from, {displayname: nama, vcard: vcard}, MessageType.contact, {quoted: ftoko})
         }
 
         const mentions = (teks, memberr, id) => {
@@ -190,6 +219,38 @@ module.exports = hexa = async (hexa, mek) => {
                 }
             })
         }
+
+//FAKEREPLY PRODUCT
+            const ftoko = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "60199782326@s.whatsapp.net" } : {})},message: {"productMessage": {"product": {"productImage":{"mimetype": "image/jpeg","jpegThumbnail": fs.readFileSync(`./stik/thumb.jpeg`)},"title": `I Am`,"description": "Adii", "currencyCode": "IDR","priceAmount1000": "9999999999","retailerId": "Adii Botz","productImageCount": 1},"businessOwnerJid": `0@s.whatsapp.net`}}}
+            //FAKE STIKER
+            const fsticker = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "60199782326@s.whatsapp.net" } : {})},"message": {"stickerMessage": { "url": "https://mmg.whatsapp.net/d/f/Am6FBfNf-E2f1VoGBXkPaNAy7L6Tw_HMavKrHEt48QM4.enc","fileSha256": "Yfj8SW7liSEnDakvyVlXVZQ1LJBC9idn09X7KHe8HTc=","fileEncSha256": "F854aUrzgAkBTOVULpne4oSIi6S04Jo56pjZEo+p+9U=","mediaKey": "Z3nA2asclAAwWHngNO/vJ81qxOE2/0gkEnXak+NxPV4=","mimetype": "image/webp","height": 64,"width": 64,"directPath": "/v/t62.15575-24/12097272_1193895144391295_8973688483514349023_n.enc?ccb=11-4&oh=5a9d7147627a8355569f1a641b9ebee3&oe=60C65E73","fileLength": "7186","mediaKeyTimestamp": "1622815545","isAnimated": false}}}
+            //FAKE VN
+            const fvn = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "60199782326@s.whatsapp.net" } : {})},message: { "audioMessage": {"mimetype":"audio/ogg; codecs=opus","seconds": "9999999","ptt": "true"}}}
+            //FAKE TEXT
+            const ftext = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "60199782326@s.whatsapp.net" } : {})},message: { "extendedTextMessage": {"text": `I Am`,"title": `Adii Botz`,'jpegThumbnail': fs.readFileSync('./stik/thumb.jpeg')}}}
+            //FAKE LIVE ACTION
+            const floc2 = {
+                  key: {"fromMe": false,"participant": `0@s.whatsapp.net`, "remoteJid": "6285878313791-60139571124@g.us" },message: { "liveLocationMessage": { "title":`I am Adii Botz`,}}}
+            //FAKEREPLY TROLI
+            const ftroli = {
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "60199782326@s.whatsapp.net" } : {})},message: {orderMessage: {itemCount : 2002,status: 1,surface : 1,message: `I am Adii Botz`,orderTitle: 'Script bot? : zsc',thumbnail: fs.readFileSync('./stik/thumb.jpeg'), sellerJid: '0@s.whatsapp.net'}}}
+            //FAKEREPLY VIDEO
+            const fvideo = {
+                  key: {fromMe: false,participant: `60199782326@s.whatsapp.net`, ...(from ? { remoteJid: "6285878313791-60139571124@g.us" } : {}) },message: { "videoMessage": { "title":"hallo bang","h": `Hmm`,'seconds': '-99999', 'caption': `${fake}`,'jpegThumbnail': fs.readFileSync('./stik/thumb.jpeg')}}}
+            //FAKEREPLY GROUPINVITE
+            const fgc = {
+                  key: {"fromMe": false,"participant": "0@s.whatsapp.net","remoteJid": "0@s.whatsapp.net"},"message": {"groupInviteMessage": {"groupJid": "6285878313791-60139571124@g.us","inviteCode": "mememteeeekkeke","groupName": "Adii Botz", "caption": `${fake}`, 'jpegThumbnail': fs.readFileSync('./stik/thumb.jpeg')}}}
+            //FAKEREPLY GIF
+            const fgif = {
+                  key: {fromMe: false,participant: `6285878313791@s.whatsapp.net`, ...(from ? { remoteJid: "6285878313791-60139571124@g.us" } : {}) },message: { "videoMessage": { "title":"hallo bang","h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `${fake}`,'jpegThumbnail': fs.readFileSync('./stik/thumb.jpeg')}}} 
+            
+const fkontak = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: `0@s.whatsapp.net` } : {}) }, message: { 'contactMessage': { 'displayName': `${pushname}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${sender.split('@')[0]}:${sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./media/thumb.jpeg')}}}
+const freply = { key: { fromMe: false, participant: '0@s.whatsapp.net' ,}, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `${prefix}${command}`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486","jpegThumbnail": fs.readFileSync(`media/fake.jpeg`)} } }
+
         const sendStickerFromUrl = async(to, url) => {
                 var names = Date.now() / 10000;
                 var download = function (uri, filename, callback) {
@@ -238,6 +299,18 @@ module.exports = hexa = async (hexa, mek) => {
                     fs.unlinkSync(filename)
                 });
             }   
+const sendButMessage = (id, text1, desc1, but = [], options = {}) => {
+// {buttonId: 'id1', buttonText: {displayText: 'Button 1'}, type: 1},
+// {buttonId: 'id2', buttonText: {displayText: 'Button 2'}, type: 1}
+const buttonMessage = {
+contentText: text1,
+footerText: desc1,
+buttons: but,
+headerType: 1
+}
+hexa.sendMessage(id, buttonMessage, MessageType.buttonsMessage, options)
+}
+
 //FUNCTION
             cekafk(afk)
             if (!mek.key.remoteJid.endsWith('@g.us') && offline){
@@ -325,7 +398,17 @@ module.exports = hexa = async (hexa, mek) => {
     }
 }	
         if (!mek.key.fromMe && banChats === true) return
+        if (!mek.key.fromMe && error === true) return reply('Bot lagi maintenance')
+
 switch (command) {
+case 'isbaileys': 
+case 'bail': 
+case 'baileys':
+reply(`${mek.quoted.isBaileys}`)
+break
+    case 'owner':
+    sendKontak(from, '60199782326', 'Adii', 'Mwehehehe')
+    break
     case 'jadibot':
     if(mek.key.fromMe) return reply('Tidak bisa jadibot di dalam bot')
     jadibot(reply,hexa,from)
@@ -344,99 +427,144 @@ switch (command) {
     }
     reply(tekss)
     break
-    case 'menu':
-    case 'help':
-    	var menu = `Hai ${pushname}
-Prefix : 「 MULTI-PREFIX 」
+   case 'menu':
+   case 'help':
+sendButMessage(
+from,
+`[MENU]
 
-*</OWNER>*
-► _${prefix}off_
-► _${prefix}on_
-► _${prefix}status_
+SILAHKAN DIPILIH KENTOD
+BUTTON GA MUNCUL?
+YNTKTS`,
+`BOT BY HEXAGON. RECODE BY ADII`,
+ [
+ {
+buttonId: `command`,
+buttonText: {
+displayText: `COMMANDS`,
+},
+type: 1,
+},
+{
+buttonId: `owner`,
+buttonText: {
+displayText: `CREATOR BOT`,
+},
+type: 1,
+},
+])
+break
+    case 'command':
+    	var menu = `「ADYYBOTZ」
 
-*</MAKER>*
-► _${prefix}sticker_
-► _${prefix}swm_ <author|packname>
-► _${prefix}take_ <author|packname>
-► _${prefix}fdeface_
-► _${prefix}emoji_
+[INFO BOT]
+Creator : @${owner}
+Creator Base : Hexagon
+Recode : Adii
+Battery : Unlimited 🙃
+Mode : ${banChats ? 'SELF-MODE' : 'PUBLIC-MODE'}
+Maintenance : ${error}
+Prefix : ${prefix}
+Command : menu
+Auto Typing/Composing : ${autongetik}
+Auto Rec : ${autovn}
 
-*</CONVERT>*
-► _${prefix}toimg_
-► _${prefix}tomp3_
-► _${prefix}tomp4_
-► _${prefix}slow_
-► _${prefix}fast_
-► _${prefix}reverse_
-► _${prefix}tourl_
+[INFO USER]
+User : ${pushname}
+Sender : ${sender}
+API : wa.me/${sender}
 
-*</UP STORY>*
-► _${prefix}upswteks_
-► _${prefix}upswimage_
-► _${prefix}upswvideo_
+[OWNER]
+_${prefix}off_
+_${prefix}on_
+_${prefix}status_
+_${prefix}upswteks_
+_${prefix}upswimage_
+_${prefix}upswvideo_
+_${prefix}self_
+_${prefix}public_
+_${prefix}setthumb_
+_${prefix}settarget_
+_${prefix}setfakeimg_
+_${prefix}setreply_
+_${prefix}get_
+_${prefix}term_ <code>
+_x_ <code>
+_${prefix}take_ <author|packname>
+_${prefix}fdeface_
 
-*</FUN>*
-► _${prefix}fitnah_
-► _${prefix}fitnahpc_
-► _${prefix}kontak_
+[MAKER]
+_${prefix}sticker_
+_${prefix}swm_ <author|packname>
+_${prefix}emoji_
 
-*</TAG>*
-► _${prefix}hidetag_
-► _${prefix}kontag_
-► _${prefix}sticktag_
-► _${prefix}totag_
+[CONVERTER]
+_${prefix}toimg_
+_${prefix}tomp3_
+_${prefix}tomp4_
+_${prefix}slow_
+_${prefix}fast_
+_${prefix}reverse_
+_${prefix}tourl_
 
-*</DOWNLOAD>*
-► _${prefix}ytsearch_ <query>
-► _${prefix}igstalk_ <query>
-► _${prefix}play_ <query>
-► _${prefix}video_ <query>
-► _${prefix}ytmp3_ <link>
-► _${prefix}ytmp4_ <link>
-► _${prefix}ig_ <link>
-► _${prefix}igstory_ <username>
-► _${prefix}twitter_ <link>
-► _${prefix}tiktok_ <link>
-► _${prefix}tiktokaudio_ <link>
-► _${prefix}fb_ <link>
-► _${prefix}brainly_ <query>
-► _${prefix}image_ <query>
-► _${prefix}anime_ <random>
-► _${prefix}pinterest_ <query>
-► _${prefix}komiku_ <query>
-► _${prefix}lirik_ <query>
-► _${prefix}chara_ <query>
-► _${prefix}playstore_ <query>
-► _${prefix}otaku_ <query>
+[FUN]
+_${prefix}fitnah_
+_${prefix}fitnahpc_
+_${prefix}kontak_
 
-*</OTHER>*
-► _${prefix}self_
-► _${prefix}public_
-► _${prefix}setthumb_
-► _${prefix}settarget_
-► _${prefix}setfakeimg_
-► _${prefix}setreply_
-► _${prefix}ping_
-► _${prefix}inspect_
-► _${prefix}join_
-► _${prefix}caripesan_ <query>
-► _${prefix}get_
-► _${prefix}term_ <code>
-► _x_ <code>
+[TAG]
+_${prefix}hidetag_
+_${prefix}kontag_
+_${prefix}sticktag_
+_${prefix}totag_
 
-*</JADI BOT>*
-► _${prefix}jadibot_
-► _${prefix}stopjadibot_
-► _${prefix}listbot_
+[DOWNLOADER]
+_${prefix}ytsearch_ <query>
+_${prefix}igstalk_ <query>
+_${prefix}play_ <query>
+_${prefix}video_ <query>
+_${prefix}ytmp3_ <link>
+_${prefix}ytmp4_ <link>
+_${prefix}ig_ <link>
+_${prefix}igstory_ <username>
+_${prefix}twitter_ <link>
+_${prefix}tiktok_ <link>
+_${prefix}tiktokaudio_ <link>
+_${prefix}fb_ <link>
+_${prefix}brainly_ <query>
+_${prefix}image_ <query>
+_${prefix}anime_ <random>
+_${prefix}pinterest_ <query>
+_${prefix}komiku_ <query>
+_${prefix}lirik_ <query>
+_${prefix}chara_ <query>
+_${prefix}playstore_ <query>
+_${prefix}otaku_ <query>
 
-*</VOTE>*
-► _${prefix}voting_
-► _${prefix}delvote_
-► _vote_
-► _devote_
+[OTHER]
+_${prefix}ping_
+_${prefix}inspect_
+_${prefix}caripesan_ <query>
 
-❏ *SELF-BOT* ❏`
-        	fakestatus(menu)
+[JADIBOT]
+_${prefix}jadibot_
+_${prefix}stopjadibot_
+_${prefix}listbot_
+
+[VOTE]
+_${prefix}voting_
+_${prefix}delvote_
+_vote_
+_devote_
+`
+        	hexa.sendMessage(from, menu, text, {quoted: ftroli, contextInfo : { forwardingScore: 520, isForwarded: true, mentionedJid: [`${owner}@s.whatsapp.net`],
+    externalAdReply: {
+                    title: `AHH YAMETE:V`,
+                    body: `YO WASSUP`,
+                    mediaType: 2,
+                    mediaUrl: 'https://youtube.com/watch?v=dQw4w9WgXcQ',
+                    thumbnailUrl: fs.readFileSync('./stik/thumb.jpg')
+                }}})
            	break
     case 'delvote':
             if(!mek.key.remoteJid) return
