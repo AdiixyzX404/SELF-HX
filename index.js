@@ -436,14 +436,14 @@ YNTKTS`,
 `BOT BY HEXAGON. RECODE BY ADII`,
  [
  {
-buttonId: `command`,
+buttonId: `.command`,
 buttonText: {
 displayText: `COMMANDS`,
 },
 type: 1,
 },
 {
-buttonId: `owner`,
+buttonId: `.owner`,
 buttonText: {
 displayText: `CREATOR BOT`,
 },
@@ -560,7 +560,7 @@ _devote_
                     body: `YO WASSUP`,
                     mediaType: 2,
                     mediaUrl: 'https://youtube.com/watch?v=dQw4w9WgXcQ',
-                    thumbnailUrl: fs.readFileSync('./stik/thumb.jpg')
+                    thumbnailUrl: fs.readFileSync('./stik/thumb.jpeg')
                 }}})
            	break
     case 'delvote':
