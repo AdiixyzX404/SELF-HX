@@ -543,7 +543,7 @@ _devote_
                 }}})
            	break
 case 'betamenu':
- stod = `${sender}`
+ let stod = `${sender}`
  listMsg = {
  buttonText: 'Menu beta',
  footerText: '*_© By Adii_*',
@@ -611,7 +611,7 @@ case 'betamenu':
 denz.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftroli})
 break
 case 'ownermenu':
-omenu = `[OWNER MENU]
+var omenu = `[OWNER MENU]
 
 _${prefix}off_
 _${prefix}on_
@@ -633,7 +633,7 @@ _${prefix}fdeface_`
 katalog(omenu)
 break
 case 'makermenu':
-mmenu = `[MAKER MENU]
+var mmenu = `[MAKER MENU]
 
 _${prefix}sticker_
 _${prefix}swm_ <author|packname>
@@ -641,7 +641,7 @@ _${prefix}emoji_`
 katalog(mmenu)
 break
 case 'convertermenu':
-cmenu = `[CONVERTER MENU]
+var cmenu = `[CONVERTER MENU]
 
 _${prefix}toimg_
 _${prefix}tomp3_
@@ -652,7 +652,7 @@ _${prefix}reverse_
 _${prefix}tourl_`
 katalog(cmenu)
 case 'funmenu':
-fmenu = `[FUN MENU]
+var fmenu = `[FUN MENU]
 
 _${prefix}fitnah_
 _${prefix}fitnahpc_
@@ -660,7 +660,7 @@ _${prefix}kontak_`
 katalog(fmenu)
 break
 case 'tagmenu':
-tmenu = `[TAG MENU]
+var tmenu = `[TAG MENU]
 
 _${prefix}hidetag_
 _${prefix}kontag_
@@ -668,8 +668,8 @@ _${prefix}sticktag_
 _${prefix}totag_`
 katalog(tmenu)
 break
-case 'downloadermenu'
-dmenu = `[DOWNLOADER MENU]
+case 'downloadermenu':
+var dmenu = `[DOWNLOADER MENU]
 
 _${prefix}ytsearch_ <query>
 _${prefix}igstalk_ <query>
@@ -695,7 +695,7 @@ _${prefix}otaku_ <query>`
 katalog(dmenu)
 break
 case 'votingmenu':
-vmenu = `[voting]
+var vmenu = `[voting]
 
 _${prefix}voting_
 _${prefix}delvote_
