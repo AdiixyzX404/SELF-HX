@@ -61,11 +61,12 @@ fake = 'ADYYBOTZ'
 multi = true
 nopref = false
 prefa = 'z'
-autovn = false
-autongetik = false
+autorecording = false
+autocomposing = false
 numbernye = '0'
 waktu = '-'
 alasan = '-'
+fakeimage = fs.readFileSync('./stik/thumb.jpeg')
 //=================================================//
 module.exports = hexa = async (hexa, mek) => {
 	try {
@@ -93,13 +94,13 @@ module.exports = hexa = async (hexa, mek) => {
 }}
 
 //BUATAN GUE. JANGAN EDIT NTR EMROR NANGES
-        if (autovn){
+        if (autorecording){
         conn.updatePresence(from, Presence.recording)
         } else {
-        if (autongetik){
+        if (autocomposing){
         conn.updatePresence(from, Presence.composing)
 }}
-          	
+          
         body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : ''
 		budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 		const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()		
@@ -129,7 +130,7 @@ module.exports = hexa = async (hexa, mek) => {
 
         //MESS
 		mess = {
-			wait: 'Otewe',
+			wait: `otw ${pushname}`,
 			success: 'Berhasil!',
 			wrongFormat: 'Format salah, coba liat lagi di menu',
 			error: {
@@ -159,6 +160,11 @@ module.exports = hexa = async (hexa, mek) => {
 
         const mentions = (teks, memberr, id) => {
             (id == null || id == undefined || id == false) ? hexa.sendMessage(from, teks.trim(), extendedText, { contextInfo: { "mentionedJid": memberr } }) : hexa.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": memberr } })
+        }
+
+        const katalog = (teks) => {
+             res = denz.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Adyy_*", "thumbnail": fakeimage, "surface": 'CATALOG' }}, {quoted:ftroli})
+             denz.relayWAMessage(res)
         }
 
         const fakestatus = (teks) => {
@@ -428,21 +434,24 @@ break
    case 'help':
 sendButMessage(
 from,
-`SILAHKAN DIPILIH KENTOD
-BUTTON GA MUNCUL? YA BEGITULAH`,
+`Jika button tidak respon
+
+ketik:
+.command
+.betamenu`,
 ``,
  [
  {
-buttonId: 'command',
+buttonId: `${prefix}command`,
 buttonText: {
 displayText: `ALL COMMANDS`,
 },
 type: 1,
 },
 {
-buttonId: 'owner',
+buttonId: `${prefix}betamenu`
 buttonText: {
-displayText: `CREATOR BOT`,
+displayText: `Menu beta`,
 },
 type: 1,
 },
@@ -547,15 +556,176 @@ _${prefix}delvote_
 _vote_
 _devote_
 `
-        	hexa.sendMessage(from, menu, text, {quoted: ftroli, contextInfo : { forwardingScore: 520, isForwarded: true, 
+        	hexa.sendMessage(from, menu, text, {quoted: ftroli, contextInfo : { forwardingScore: 520, isForwarded: true, mentionedJid : [`${owner}s.whatsapp.net`],
     externalAdReply: {
-                    title: ``,
-                    body: `YO WASSUP`,
+                    title: `welkam to menu`,
+                    body: `${pushname} are you gay\nno\nyes:v`,
                     mediaType: 2,
                     mediaUrl: 'https://youtube.com/watch?v=dQw4w9WgXcQ',
                     thumbnailUrl: 'https://telegra.ph/file/2758c1f4c852cd7d1f206.jpg',
                 }}})
            	break
+case 'betamenu':
+ stod = `${sender}`
+ listMsg = {
+ buttonText: 'Menu beta',
+ footerText: '*_© By Adii_*',
+ description: `Hai kak @${stod.split('@')[0]}, Silahkan pilih menu disini`,
+ sections: [
+                     {
+                      "title": `${jmn} - ${week} ${weton} - ${calender}`,
+ rows: [
+                          {
+                              "title": "Sc",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "Speed",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "Owner",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "Jadibot",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "ListJadibot",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "Runtime",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "OwnerMenu",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "MakerMenu",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "ConverterMenu",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "FunMenu",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "TagMenu",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "DownloaderMenu",
+                              "rowId": ""
+                           },
+                           {
+                              "title": "VotingMenu",
+                              "rowId": ""
+                           }
+                        ]
+                     }],
+ listType: 1
+}
+denz.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftroli})
+break
+case 'ownermenu':
+omenu = `[OWNER MENU]
+
+_${prefix}off_
+_${prefix}on_
+_${prefix}status_
+_${prefix}upswteks_
+_${prefix}upswimage_
+_${prefix}upswvideo_
+_${prefix}self_
+_${prefix}public_
+_${prefix}setthumb_
+_${prefix}settarget_
+_${prefix}setfakeimg_
+_${prefix}setreply_
+_${prefix}get_
+_${prefix}term_ <code>
+_x_ <code>
+_${prefix}take_ <author|packname>
+_${prefix}fdeface_`
+katalog(omenu)
+break
+case 'makermenu':
+mmenu = `[MAKER MENU]
+
+_${prefix}sticker_
+_${prefix}swm_ <author|packname>
+_${prefix}emoji_`
+katalog(mmenu)
+break
+case 'convertermenu':
+cmenu = `[CONVERTER MENU]
+
+_${prefix}toimg_
+_${prefix}tomp3_
+_${prefix}tomp4_
+_${prefix}slow_
+_${prefix}fast_
+_${prefix}reverse_
+_${prefix}tourl_`
+katalog(cmenu)
+case 'funmenu':
+fmenu = `[FUN MENU]
+
+_${prefix}fitnah_
+_${prefix}fitnahpc_
+_${prefix}kontak_`
+katalog(fmenu)
+break
+case 'tagmenu':
+tmenu = `[TAG MENU]
+
+_${prefix}hidetag_
+_${prefix}kontag_
+_${prefix}sticktag_
+_${prefix}totag_`
+katalog(tmenu)
+break
+case 'downloadermenu'
+dmenu = `[DOWNLOADER MENU]
+
+_${prefix}ytsearch_ <query>
+_${prefix}igstalk_ <query>
+_${prefix}play_ <query>
+_${prefix}video_ <query>
+_${prefix}ytmp3_ <link>
+_${prefix}ytmp4_ <link>
+_${prefix}ig_ <link>
+_${prefix}igstory_ <username>
+_${prefix}twitter_ <link>
+_${prefix}tiktok_ <link>
+_${prefix}tiktokaudio_ <link>
+_${prefix}fb_ <link>
+_${prefix}brainly_ <query>
+_${prefix}image_ <query>
+_${prefix}anime_ <random>
+_${prefix}pinterest_ <query>
+_${prefix}komiku_ <query>
+_${prefix}lirik_ <query>
+_${prefix}chara_ <query>
+_${prefix}playstore_ <query>
+_${prefix}otaku_ <query>`
+katalog(dmenu)
+break
+case 'votingmenu':
+vmenu = `[voting]
+
+_${prefix}voting_
+_${prefix}delvote_
+_vote_
+_devote_`
+katalog(vmenu)
+break
     case 'delvote':
             if(!mek.key.remoteJid) return
             if(isVote) return reply('Tidak ada sesi Voting')
