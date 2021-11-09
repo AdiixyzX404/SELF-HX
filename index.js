@@ -553,7 +553,7 @@ _devote_
                     body: `YO WASSUP`,
                     mediaType: 2,
                     mediaUrl: 'https://youtube.com/watch?v=dQw4w9WgXcQ',
-                    thumbnailUrl: await getBuffer('https://telegra.ph/file/2758c1f4c852cd7d1f206.jpg'),
+                    thumbnailUrl: 'https://telegra.ph/file/2758c1f4c852cd7d1f206.jpg',
                 }}})
            	break
     case 'delvote':
