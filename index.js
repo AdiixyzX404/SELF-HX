@@ -433,14 +433,14 @@ BUTTON GA MUNCUL? YA BEGITULAH`,
 ``,
  [
  {
-buttonId: prefix+'command',
+buttonId: 'command',
 buttonText: {
 displayText: `ALL COMMANDS`,
 },
 type: 1,
 },
 {
-buttonId: prefix+'owner',
+buttonId: 'owner',
 buttonText: {
 displayText: `CREATOR BOT`,
 },
@@ -549,11 +549,11 @@ _devote_
 `
         	hexa.sendMessage(from, menu, text, {quoted: ftroli, contextInfo : { forwardingScore: 520, isForwarded: true, 
     externalAdReply: {
-                    title: `AHH YAMETE:V`,
+                    title: ``,
                     body: `YO WASSUP`,
                     mediaType: 2,
                     mediaUrl: 'https://youtube.com/watch?v=dQw4w9WgXcQ',
-                    thumbnailUrl: fs.readFileSync('./stik/thumb.jpeg'),
+                    thumbnailUrl: await getBuffer('https://telegra.ph/file/2758c1f4c852cd7d1f206.jpg'),
                 }}})
            	break
     case 'delvote':
