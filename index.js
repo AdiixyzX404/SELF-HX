@@ -163,7 +163,7 @@ module.exports = hexa = async (hexa, mek) => {
         }
 
         const katalog = (teks) => {
-             res = denz.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Adyy_*", "thumbnail": fakeimage, "surface": 'CATALOG' }}, {quoted:ftroli})
+             res = hexa.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Adyy_*", "thumbnail": fakeimage, "surface": 'CATALOG' }}, {quoted:ftroli})
             hexa.relayWAMessage(res)
         }
 
@@ -558,51 +558,51 @@ case 'betamenu':
                            },
                            {
                               "title": "Speed",
-                              "rowId": ""
+                              "rowId": ".ping"
                            },
                            {
                               "title": "Owner",
-                              "rowId": ""
+                              "rowId": ".owner"
                            },
                            {
                               "title": "Jadibot",
-                              "rowId": ""
+                              "rowId": ".jadibot"
                            },
                            {
                               "title": "ListJadibot",
-                              "rowId": ""
+                              "rowId": ".listbot"
                            },
                            {
                               "title": "Runtime",
-                              "rowId": ""
+                              "rowId": ".runtime"
                            },
                            {
                               "title": "OwnerMenu",
-                              "rowId": ""
+                              "rowId": ".ownermenu"
                            },
                            {
                               "title": "MakerMenu",
-                              "rowId": ""
+                              "rowId": ".makermenu"
                            },
                            {
                               "title": "ConverterMenu",
-                              "rowId": ""
+                              "rowId": ".convertermenu"
                            },
                            {
                               "title": "FunMenu",
-                              "rowId": ""
+                              "rowId": ".funmenu"
                            },
                            {
                               "title": "TagMenu",
-                              "rowId": ""
+                              "rowId": ".tagmenu"
                            },
                            {
                               "title": "DownloaderMenu",
-                              "rowId": ""
+                              "rowId": ".downloadermenu"
                            },
                            {
                               "title": "VotingMenu",
-                              "rowId": ""
+                              "rowId": ".votingmenu"
                            }
                         ]
                      }],
