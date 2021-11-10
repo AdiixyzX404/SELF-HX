@@ -550,7 +550,7 @@ case 'betamenu':
  description: `Hai kak @${stod.split('@')[0]}, Silahkan pilih menu disini`,
  sections: [
                      {
-                      "title": `${jmn} - ${week} ${weton} - ${calender}`,
+                      "title": `${time}`,
  rows: [
                           {
                               "title": "Sc",
