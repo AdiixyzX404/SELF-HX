@@ -164,7 +164,7 @@ module.exports = hexa = async (hexa, mek) => {
 
         const katalog = (teks) => {
              res = denz.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Adyy_*", "thumbnail": fakeimage, "surface": 'CATALOG' }}, {quoted:ftroli})
-             denz.relayWAMessage(res)
+            hexa.relayWAMessage(res)
         }
 
         const fakestatus = (teks) => {
@@ -608,7 +608,7 @@ case 'betamenu':
                      }],
  listType: 1
 }
-denz.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftroli})
+hexa.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftroli})
 break
 case 'ownermenu':
 var omenu = `[OWNER MENU]
