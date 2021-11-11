@@ -608,7 +608,7 @@ case 'betamenu':
                      }],
  listType: 1
 }
-hexa.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftroli,externalAdReply:{title: "LIST MESSAGE",body:``,previewType:"PHOTO",thumbnail:fs.readFileSync('./stik/thumb.jpeg'),sourceUrl:"wa.me/60199782326"}}})
+hexa.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftroli})
 break
 case 'ownermenu':
 var omenu = `[OWNER MENU]
