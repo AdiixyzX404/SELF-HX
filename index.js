@@ -467,6 +467,8 @@ _${prefix}term_ <code>
 _x_ <code>
 _${prefix}take_ <author|packname>
 _${prefix}fdeface_
+
+[BAILEYS]
 _${prefix}isbaileys_
 
 [MAKER]
@@ -533,7 +535,7 @@ _${prefix}delvote_
 _vote_
 _devote_
 `
-        	hexa.sendMessage(from, menu, text, {quoted: ftroli, contextInfo : { forwardingScore: 520, isForwarded: true, mentionedJid : [`${owner}s.whatsapp.net`],
+        	hexa.sendMessage(from, menu, text, {quoted: ftroli, contextInfo : { forwardingScore: 520, isForwarded: true, mentionedJid : [`${owner}@s.whatsapp.net`],
     externalAdReply: {
                     title: `welkam to menu`,
                     body: `${pushname} are you gay\nno\nyes:v`,
@@ -566,43 +568,43 @@ case 'betamenu':
                            },
                            {
                               "title": "Jadibot",
-                              "rowId": ".jadibot"
+                              "rowId": ""
                            },
                            {
-                              "title": "ListJadibot",
-                              "rowId": ".listbot"
+                              "title": "ListBot",
+                              "rowId": ""
                            },
                            {
                               "title": "Runtime",
-                              "rowId": ".runtime"
+                              "rowId": ""
                            },
                            {
                               "title": "OwnerMenu",
-                              "rowId": ".ownermenu"
+                              "rowId": ""
                            },
                            {
                               "title": "MakerMenu",
-                              "rowId": ".makermenu"
+                              "rowId": ""
                            },
                            {
                               "title": "ConverterMenu",
-                              "rowId": ".convertermenu"
+                              "rowId": ""
                            },
                            {
                               "title": "FunMenu",
-                              "rowId": ".funmenu"
+                              "rowId": ""
                            },
                            {
                               "title": "TagMenu",
-                              "rowId": ".tagmenu"
+                              "rowId": ""
                            },
                            {
                               "title": "DownloaderMenu",
-                              "rowId": ".downloadermenu"
+                              "rowId": ""
                            },
                            {
                               "title": "VotingMenu",
-                              "rowId": ".votingmenu"
+                              "rowId": ""
                            }
                         ]
                      }],
