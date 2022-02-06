@@ -57,7 +57,7 @@ banChats = true
 offline = false
 targetpc = '60199782326'
 owner = '60199782326'
-fake = 'ADYYBOTZ'
+fake = 'AdyyAndre'
 multi = true
 nopref = false
 prefa = 'z'
@@ -163,7 +163,7 @@ module.exports = hexa = async (hexa, mek) => {
         }
 
         const katalog = (teks) => {
-             res = hexa.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Adyy_*", "thumbnail": fakeimage, "surface": 'CATALOG' }}, {quoted:ftroli})
+             res = hexa.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "Buwong puwuh", "thumbnail": fakeimage, "surface": 'CATALOG' }}, {quoted:ftroli})
             hexa.relayWAMessage(res)
         }
 
@@ -242,7 +242,7 @@ module.exports = hexa = async (hexa, mek) => {
                   key: {"fromMe": false,"participant": `0@s.whatsapp.net`, "remoteJid": "6285878313791-60139571124@g.us" },message: { "liveLocationMessage": { "title":`I am Adii Botz`,}}}
             //FAKEREPLY TROLI
             const ftroli = {
-                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "60199782326@s.whatsapp.net" } : {})},message: {orderMessage: {itemCount : 2002,status: 1,surface : 1,message: `MENDING JUAL SC INI. HMM`,orderTitle: 'Script bot? : zsc',thumbnail: fs.readFileSync('./stik/thumb.jpeg'), sellerJid: '0@s.whatsapp.net'}}}
+                  key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "60199782326@s.whatsapp.net" } : {})},message: {orderMessage: {itemCount : 2002,status: 1,surface : 1,message: `MENDIINGAN. HMM`,orderTitle: 'Script bot? : zsc',thumbnail: fs.readFileSync('./stik/thumb.jpeg'), sellerJid: '0@s.whatsapp.net'}}}
             //FAKEREPLY VIDEO
             const fvideo = {
                   key: {fromMe: false,participant: `60199782326@s.whatsapp.net`, ...(from ? { remoteJid: "6285878313791-60139571124@g.us" } : {}) },message: { "videoMessage": { "title":"hallo bang","h": `Hmm`,'seconds': '-99999', 'caption': `${fake}`,'jpegThumbnail': fs.readFileSync('./stik/thumb.jpeg')}}}
@@ -430,14 +430,11 @@ break
     }
     reply(tekss)
     break
-    case 'menu':
     case 'help':
-    	var menu = `\`\`\`❏「 BOT WEAH 」\`\`\`
-_- Creator : @${owner}_
-_- Creator Base : Hexagon_
-_- Recode : Adii_
-_- Battery : Unlimited_ 🙃
-_- Mode : ${banChats ? 'SELF-MODE' : 'PUBLIC-MODE'}_
+    	var menu = `${conn.user.name}
+
+_Creator Base : Hexagon_
+_Mode : ${banChats ? 'SELF-MODE' : 'PUBLIC-MODE'}_
 _- Prefix : ${prefix}_
 _- Command : menu_
 
@@ -534,7 +531,7 @@ _${prefix}voting_
 _${prefix}delvote_
 _vote_
 _devote_
-`
+`;
         	hexa.sendMessage(from, menu, text, {quoted: ftroli, contextInfo : { forwardingScore: 520, isForwarded: true, mentionedJid : [`${owner}@s.whatsapp.net`],
     externalAdReply: {
                     title: `welkam to menu`,
@@ -544,12 +541,12 @@ _devote_
                     thumbnailUrl: 'https://telegra.ph/file/2758c1f4c852cd7d1f206.jpg',
                 }}})
            	break
-case 'betamenu':
+case 'menu':
  let stod = `${sender}`
  listMsg = {
- buttonText: 'pilih',
- footerText: '*_© By Adii_*',
- description: `Hai @${stod.split('@')[0]}, Silahkan pilih menu disini`,
+ buttonText: 'Info Bot',
+ footerText: '*_© ${conn.user.name.toUpperCase()}_*',
+ description: menu,
  sections: [
                      {
                       "title": `${time}`,
