@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@adiwajshing/baileys": "git+https://github.com/adiwajshing/Baileys",
-    "adii-api": "git+https://github.com/IAmAdyy/Adii-Api",
+    "adii-api": "git+https://github.com/Adiixyz/Api-Adii",
     "async": "^2.4.1",
     "awesome-phonenumber": "^2.48.0",
     "axios": "^0.21.1",
