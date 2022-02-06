@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "@adiwajshing/baileys": "git+https://github.com/adiwajshing/Baileys",
+    "@adiwajshing/baileys": "^3.5.2",
     "adii-api": "git+https://github.com/Adiixyz/Api-Adii",
     "async": "^2.4.1",
     "awesome-phonenumber": "^2.48.0",
