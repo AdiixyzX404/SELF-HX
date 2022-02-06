@@ -431,20 +431,14 @@ break
     reply(tekss)
     break
     case 'help':
-    	var menu = `${conn.user.name}
+    	var menu = `[${conn.user.name}]
 
 _Creator Base : Hexagon_
 _Mode : ${banChats ? 'SELF-MODE' : 'PUBLIC-MODE'}_
-_- Prefix : ${prefix}_
-_- Command : menu_
-
-\`\`\`❏「 Info User 」\`\`\`
-_- User : ${pushname}_
-_- Sender : ${sender}_
-_- API : wa.me/${sender}_
-
-[SIMPLE]
-_${prefix}betamenu_
+_Prefix : ${prefix}_
+_Command : menu_
+_User : ${pushname}_
+_Sender : ${sender}_
 
 [OWNER]
 _${prefix}off_
@@ -553,61 +547,25 @@ case 'menu':
  rows: [
                           {
                               "title": "Sc",
-                              "rowId": ""
+                              "rowId": `${prefix}sc`
                            },
                            {
                               "title": "Speed",
-                              "rowId": ".ping"
+                              "rowId": `${prefix}ping`
                            },
                            {
                               "title": "Owner",
                               "rowId": ".owner"
                            },
                            {
-                              "title": "Jadibot",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "ListBot",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "Runtime",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "OwnerMenu",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "MakerMenu",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "ConverterMenu",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "FunMenu",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "TagMenu",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "DownloaderMenu",
-                              "rowId": ""
-                           },
-                           {
-                              "title": "VotingMenu",
-                              "rowId": ""
+                              "title": "Status",
+                              "rowId": `${prefix}status`
                            }
                         ]
                      }],
  listType: 1
 }
-hexa.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftroli})
+hexa.sendMessage(from, listMsg, MessageType.listMessage, {quoted:ftroli})
 break
 case 'ownermenu':
 var omenu = `[OWNER MENU]
